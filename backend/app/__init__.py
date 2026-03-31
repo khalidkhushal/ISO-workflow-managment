@@ -2,6 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from pymongo import MongoClient
 from dotenv import load_dotenv
+from routes import organizations, users, workflows, applications
 import os
 
 def create_app():
@@ -14,7 +15,6 @@ def create_app():
 
     CORS(app)
 
-    from routes import organizations, users, workflows, applications
     app.register_blueprint(organizations.bp)
     app.register_blueprint(users.bp)
     app.register_blueprint(workflows.bp)
